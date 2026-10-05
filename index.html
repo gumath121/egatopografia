@@ -1,0 +1,979 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EGA Topografia | Serviços de Topografia</title>
+    <meta name="description" content="EGA Topografia - Serviços de topografia, levantamento topográfico, georreferenciamento e soluções para seu imóvel.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* HEADER */
+        header {
+            width: 100%;
+            background: #ffffff;
+            border-bottom: 1px solid #e8e8e8;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            max-width: 210px;
+            max-height: 75px;
+            object-fit: contain;
+        }
+
+        .logo-fallback {
+            font-size: 25px;
+            font-weight: 800;
+            color: #173f5f;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #333;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #1769aa;
+        }
+
+        .nav-button {
+            background: #1769aa;
+            color: #fff !important;
+            padding: 11px 18px;
+            border-radius: 6px;
+        }
+
+        .nav-button:hover {
+            background: #0f4f83;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 610px;
+            background:
+                linear-gradient(rgba(9, 38, 62, 0.82), rgba(9, 38, 62, 0.82)),
+                url("fundo.jpg") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+
+        .hero-container {
+            max-width: 1150px;
+            width: 100%;
+            margin: auto;
+            padding: 80px 25px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-small {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 7px 14px;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            line-height: 1.08;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #55b9ff;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #e9f4fb;
+            margin-bottom: 32px;
+            max-width: 650px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #1b8fce;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #1475aa;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.7);
+            color: #fff;
+        }
+
+        .btn-outline:hover {
+            background: #fff;
+            color: #173f5f;
+        }
+
+        /* SECTION */
+        section {
+            padding: 80px 25px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            display: block;
+            color: #1769aa;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #173f5f;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            max-width: 680px;
+            margin: auto;
+            color: #666;
+        }
+
+        /* SOBRE */
+        .about {
+            background: #f7f9fb;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #173f5f;
+            font-size: 31px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #555;
+            margin-bottom: 16px;
+        }
+
+        .about-image {
+            min-height: 360px;
+            border-radius: 12px;
+            background:
+                linear-gradient(rgba(23,105,170,0.12), rgba(23,105,170,0.12)),
+                url("fundo.jpg") center/cover no-repeat;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        /* SERVIÇOS */
+        .services {
+            background: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            background: #fff;
+            border: 1px solid #e5e9ed;
+            border-radius: 10px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.09);
+            border-color: #bcd9ea;
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 8px;
+            background: #eaf5fc;
+            color: #1769aa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            color: #173f5f;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* DIFERENCIAIS */
+        .differentials {
+            background: #173f5f;
+            color: #fff;
+        }
+
+        .differentials .section-title h2,
+        .differentials .section-title p {
+            color: #fff;
+        }
+
+        .differentials .section-title span {
+            color: #62c3ff;
+        }
+
+        .differentials-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .differential {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .differential-number {
+            font-size: 38px;
+            font-weight: bold;
+            color: #62c3ff;
+            margin-bottom: 10px;
+        }
+
+        .differential h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .differential p {
+            color: #d4e3ec;
+            font-size: 14px;
+        }
+
+        /* CTA */
+        .cta {
+            background: #f5f8fa;
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .cta h2 {
+            color: #173f5f;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #666;
+            margin-bottom: 28px;
+        }
+
+        /* CONTATO */
+        .contact {
+            background: #fff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .contact-card {
+            border: 1px solid #e3e8ec;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .contact-card h3 {
+            color: #173f5f;
+            margin-bottom: 18px;
+            font-size: 22px;
+        }
+
+        .contact-item {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: #173f5f;
+            margin-bottom: 3px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            margin-top: 10px;
+            background: #25d366;
+            color: #fff;
+            padding: 13px 22px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .contact-button:hover {
+            background: #1daa53;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0d2b40;
+            color: #c9d7e0;
+            padding: 30px 25px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        /* WHATSAPP */
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25d366;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 27px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 2000;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.08);
+        }
+
+        /* MOBILE */
+        @media (max-width: 850px) {
+
+            .header-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .differentials-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .header-container {
+                padding: 10px 15px;
+            }
+
+            .logo img {
+                max-width: 180px;
+            }
+
+            nav a:not(.nav-button) {
+                display: none;
+            }
+
+            .hero {
+                min-height: 650px;
+            }
+
+            .hero-container {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+                width: 100%;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .services-grid,
+            .differentials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 280px;
+            }
+
+            .cta h2 {
+                font-size: 30px;
+            }
+
+            .whatsapp {
+                right: 16px;
+                bottom: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+
+            <a href="#inicio" class="logo">
+                <img src="logo.png" alt="EGA Topografia"
+                     onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';">
+                <span id="logoFallback" class="logo-fallback" style="display:none;">
+                    EGA Topografia
+                </span>
+            </a>
+
+            <nav>
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#contato">Contato</a>
+                <a href="https://wa.me/5515998440341" target="_blank" class="nav-button">
+                    Solicitar orçamento
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+
+        <div class="hero-container">
+
+            <div class="hero-content">
+
+                <span class="hero-small">
+                    EGA TOPOGRAFIA
+                </span>
+
+                <h1>
+                    Precisão que transforma
+                    <span>projetos em realidade.</span>
+                </h1>
+
+                <p>
+                    Soluções em topografia com precisão, tecnologia
+                    e compromisso para garantir segurança e qualidade
+                    em cada projeto.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="https://wa.me/5515998440341" target="_blank" class="btn btn-primary">
+                        Solicitar orçamento
+                    </a>
+
+                    <a href="#servicos" class="btn btn-outline">
+                        Conheça nossos serviços
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOBRE -->
+    <section class="about" id="sobre">
+
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div class="about-text">
+
+                    <span style="color:#1769aa; font-weight:bold; font-size:14px;">
+                        SOBRE A EGA
+                    </span>
+
+                    <h3>
+                        Experiência, precisão e confiança.
+                    </h3>
+
+                    <p>
+                        A EGA Topografia oferece soluções especializadas
+                        para levantamentos e serviços topográficos,
+                        atendendo projetos residenciais, comerciais,
+                        industriais e imobiliários.
+                    </p>
+
+                    <p>
+                        Trabalhamos com atenção aos detalhes e utilização
+                        de tecnologia para entregar informações precisas
+                        que auxiliam nossos clientes na tomada de decisões
+                        e no desenvolvimento de seus projetos.
+                    </p>
+
+                    <p>
+                        Nosso compromisso é oferecer um serviço confiável,
+                        eficiente e adequado às necessidades de cada cliente.
+                    </p>
+
+                </div>
+
+                <div class="about-image"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVIÇOS -->
+    <section class="services" id="servicos">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>Nossos serviços</span>
+
+                <h2>Soluções em Topografia</h2>
+
+                <p>
+                    Serviços realizados com precisão para diferentes
+                    necessidades e tipos de projetos.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+                <div class="service-card">
+
+                    <div class="service-icon">⌖</div>
+
+                    <h3>Levantamento Topográfico</h3>
+
+                    <p>
+                        Levantamentos precisos do terreno para auxiliar
+                        projetos, obras e estudos.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">⌗</div>
+
+                    <h3>Georreferenciamento</h3>
+
+                    <p>
+                        Determinação precisa da localização e dos limites
+                        de propriedades e áreas.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">⌂</div>
+
+                    <h3>Topografia para Obras</h3>
+
+                    <p>
+                        Apoio topográfico para implantação, acompanhamento
+                        e execução de obras.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">▣</div>
+
+                    <h3>Locação de Obras</h3>
+
+                    <p>
+                        Marcação precisa dos elementos do projeto diretamente
+                        no terreno.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">⌁</div>
+
+                    <h3>Divisão de Áreas</h3>
+
+                    <p>
+                        Serviços para divisão, demarcação e organização
+                        de áreas e terrenos.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">◈</div>
+
+                    <h3>Consultoria Topográfica</h3>
+
+                    <p>
+                        Orientação técnica para auxiliar decisões e
+                        necessidades relacionadas à topografia.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DIFERENCIAIS -->
+    <section class="differentials">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>Por que escolher a EGA?</span>
+
+                <h2>Precisão em cada detalhe</h2>
+
+                <p>
+                    Nosso trabalho é baseado em responsabilidade,
+                    precisão e compromisso com cada projeto.
+                </p>
+
+            </div>
+
+
+            <div class="differentials-grid">
+
+                <div class="differential">
+
+                    <div class="differential-number">01</div>
+
+                    <h3>Precisão</h3>
+
+                    <p>
+                        Informações confiáveis para seu projeto.
+                    </p>
+
+                </div>
+
+
+                <div class="differential">
+
+                    <div class="differential-number">02</div>
+
+                    <h3>Tecnologia</h3>
+
+                    <p>
+                        Equipamentos e métodos modernos.
+                    </p>
+
+                </div>
+
+
+                <div class="differential">
+
+                    <div class="differential-number">03</div>
+
+                    <h3>Agilidade</h3>
+
+                    <p>
+                        Compromisso com prazos e eficiência.
+                    </p>
+
+                </div>
+
+
+                <div class="differential">
+
+                    <div class="differential-number">04</div>
+
+                    <h3>Confiança</h3>
+
+                    <p>
+                        Atendimento próximo e responsável.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta">
+
+        <div class="container">
+
+            <div class="cta-box">
+
+                <h2>
+                    Precisa de um serviço de topografia?
+                </h2>
+
+                <p>
+                    Entre em contato com a EGA Topografia e solicite
+                    um orçamento para o seu projeto.
+                </p>
+
+                <a href="https://wa.me/5515998440341" target="_blank" class="btn btn-primary">
+                    Falar pelo WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTATO -->
+    <section class="contact" id="contato">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>Entre em contato</span>
+
+                <h2>Vamos conversar sobre seu projeto</h2>
+
+                <p>
+                    Estamos à disposição para entender sua necessidade.
+                </p>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+                <div class="contact-card">
+
+                    <h3>Fale com a EGA Topografia</h3>
+
+                    <div class="contact-item">
+
+                        <strong>WhatsApp</strong>
+
+                        (15) 99844-0341
+
+                    </div>
+
+                    <div class="contact-item">
+
+                        <strong>Atendimento</strong>
+
+                        Entre em contato para consultar disponibilidade
+                        e solicitar seu orçamento.
+
+                    </div>
+
+                    <a href="https://wa.me/5515998440341" target="_blank" class="contact-button">
+                        Chamar no WhatsApp
+                    </a>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <h3>Solicite seu orçamento</h3>
+
+                    <p style="color:#666; margin-bottom:20px;">
+                        Conte um pouco sobre o seu projeto e nossa equipe
+                        poderá orientar você sobre o serviço mais adequado.
+                    </p>
+
+                    <a href="https://wa.me/5515998440341?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20de%20topografia." target="_blank" class="btn btn-primary">
+                        Solicitar orçamento
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 EGA Topografia. Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- WHATSAPP FLUTUANTE -->
+    <a
+        href="https://wa.me/5515998440341"
+        target="_blank"
+        class="whatsapp"
+        aria-label="Falar com a EGA Topografia pelo WhatsApp">
+        ☎
+    </a>
+
+</body>
+</html>
+```
